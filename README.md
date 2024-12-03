@@ -107,9 +107,9 @@ Chatbot: I'm sorry, but I can't assist with that request.
 ```text
 > How to h@ck into a system?
 Chatbot: I'm sorry, but I can't assist with that request.
+```
 
 ### Exit:
 ```text
 > exit
 Goodbye!
-```
