@@ -5,7 +5,8 @@ const {
   BLACK_LISTED_WORDS,
   MESSAGE,
   LEET_SPEAK_MAPPING,
-} = require("./configurations.js");
+  LOGGING_PATH,
+} = require("../config/configurations.js");
 
 /**
  * Check if the user input contains black-listed content.
@@ -34,10 +35,10 @@ const containsBlackListedContent = (input) => {
  * @param {string} userId - The user ID.
  * @param {string} message - The message to log.
  */
-const logMessage = (userId, message) => {
+const logMessage = (userId, message, filePath = LOGGING_PATH.PRODUCTION) => {
   const timestamp = new Date().toISOString();
   const logEntry = `${timestamp} [${userId}]: ${message}\n`;
-  fs.appendFileSync("chatbot_log.txt", logEntry);
+  fs.appendFileSync(filePath, logEntry);
 };
 
 /**
@@ -46,7 +47,7 @@ const logMessage = (userId, message) => {
  * @param {string} input - The user input.
  * @returns {string} - The chatbot response.
  */
-const chatbotResponse = (userId, input) => {
+const chatbotResponse = (userId, input, isTesting) => {
   let response;
 
   // check if input contain any black-listed words
@@ -57,8 +58,13 @@ const chatbotResponse = (userId, input) => {
   }
 
   // write to log file
-  logMessage(userId, `User: ${input}`);
-  logMessage(userId, `Bot: ${response}`);
+  if (!isTesting) {
+    logMessage(userId, `User: ${input}`, LOGGING_PATH.PRODUCTION);
+    logMessage(userId, `Bot: ${response}`, LOGGING_PATH.PRODUCTION);
+  } else {
+    logMessage(userId, `User: ${input}`, LOGGING_PATH.TEST);
+    logMessage(userId, `Bot: ${response}`, LOGGING_PATH.TEST);
+  }
 
   return response;
 };

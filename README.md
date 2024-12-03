@@ -45,7 +45,7 @@ This project implements a simple command-line chatbot application that adheres t
 
 1. Start the chatbot:
    ```bash
-   node index.js
+   npm run start
    ```
 
 2. Follow the prompts:
@@ -62,6 +62,7 @@ This project implements a simple command-line chatbot application that adheres t
 - **`configurations.js`**: Contains the program's configurations (i.e. BLACK_LISTED_WORDS, MESSAGE, LEET_SPEAK_MAPPING...).
 - **`chabot.test.js`**: Contains the unit tests for the chatbot.
 - **`chatbot_log.txt`**: Log file where all interactions are stored.
+- **`chatbot_log_test.txt`**: Log file where all interactions are stored (in unit tests).
 
 ### Key Functions
 

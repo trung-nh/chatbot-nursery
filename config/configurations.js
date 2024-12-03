@@ -38,8 +38,14 @@ const LEET_SPEAK_MAPPING = [
   ["1", "i"],
 ];
 
+const LOGGING_PATH = {
+  TEST : "./logs/chatbot_log_test.txt",
+  PRODUCTION: "./logs/chatbot_log.txt"
+}
+
 module.exports = {
   BLACK_LISTED_WORDS,
   MESSAGE,
-  LEET_SPEAK_MAPPING
+  LEET_SPEAK_MAPPING,
+  LOGGING_PATH
 };

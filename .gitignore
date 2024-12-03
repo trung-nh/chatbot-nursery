@@ -1,2 +1,4 @@
 chatbot_log.txt
 node_modules
+coverage
+logs/*
