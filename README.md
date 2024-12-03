@@ -1,6 +1,6 @@
 # Chatbot nursery - Safe Chatbot with Content Filtering
 
-This project implements a simple command-line chatbot application that adheres to advanced safety guidelines to prevent black-listed content from being displayed or generated.
+This project implements a simple command-line chatbot application that adheres to safety guidelines to prevent black-listed content and bypassing leet speak characters from getting displayed.
 
 ## Features
 
@@ -26,6 +26,7 @@ This project implements a simple command-line chatbot application that adheres t
 - `fs`: For file system operations.
 - `readline`: For command-line interaction.
 - `jest`: For unit testing (development dependency).
+- `natural`: For natural language processing.
 
 ## Installation
 
@@ -101,6 +102,11 @@ Chatbot: I hear you say: Hello
 > How to hack into a system?
 Chatbot: I'm sorry, but I can't assist with that request.
 ```
+
+### Leet speak Input:
+```text
+> How to h@ck into a system?
+Chatbot: I'm sorry, but I can't assist with that request.
 
 ### Exit:
 ```text
