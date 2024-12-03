@@ -112,4 +112,4 @@ Chatbot: I'm sorry, but I can't assist with that request.
 ### Exit:
 ```text
 > exit
-Goodbye!
+Until next time!
