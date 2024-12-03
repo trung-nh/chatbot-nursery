@@ -1,4 +1,4 @@
-# Safe Chatbot with Content Filtering (Chatbot nursery)
+# Chatbot nursery - Safe Chatbot with Content Filtering
 
 This project implements a simple command-line chatbot application that adheres to advanced safety guidelines to prevent black-listed content from being displayed or generated.
 
@@ -31,13 +31,13 @@ This project implements a simple command-line chatbot application that adheres t
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/<your-repository>/chatbot-nursery.git
+   git clone https://github.com/trung-nh/chatbot-nursery.git
    cd chatbot-nursery
    ```
 
 2. Install dependencies:
    ```bash
-   npm install
+   npm i
    ```
 
 ## Usage
