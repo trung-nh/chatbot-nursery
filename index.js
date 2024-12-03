@@ -1,26 +1,11 @@
 const fs = require("fs");
 const readline = require("readline");
 const natural = require("natural");
-
-// Black-listed words list
-const BLACK_LISTED_WORDS = [
-  "hack",
-  "hacking",
-  "scam",
-  "scamming",
-  "cheat",
-  "cheating",
-  "plagiarism",
-];
-
-// messages used within the program and unit tests
-const MESSAGE = {
-  INSTRUCTION:
-    "Welcome to Chatbot Nursery! Type 'exit' or 'quit' to close the session.",
-  PROMPT: "How may I assist you today?",
-  GOODBYE: "Until next time",
-  FAILURE: "I'm sorry, but I can't assist with that request.",
-};
+const {
+  BLACK_LISTED_WORDS,
+  MESSAGE,
+  LEET_SPEAK_MAPPING,
+} = require("./configurations.js");
 
 /**
  * Check if the user input contains black-listed content.
@@ -30,9 +15,17 @@ const MESSAGE = {
 const containsBlackListedContent = (input) => {
   const tokenizer = new natural.WordTokenizer();
 
-  // normalize input
-  const tokens = tokenizer.tokenize(input.toLowerCase().replace(/[@]/g, "a"));
-  console.log(tokens);
+  // convert input to lower case
+  input = input.toLowerCase();
+
+  // normalize input with bypassing leet speak
+  LEET_SPEAK_MAPPING.forEach((mapping) => {
+    const regex = new RegExp(mapping[0], "g");
+    input = input.replace(regex, mapping[1]);
+  });
+
+  // tokenize input to check for black-listed words
+  const tokens = tokenizer.tokenize(input);
   return tokens.some((word) => BLACK_LISTED_WORDS.includes(word));
 };
 
@@ -102,6 +95,4 @@ initializeChatbot();
 
 module.exports = {
   chatbotResponse,
-  MESSAGE,
-  BLACK_LISTED_WORDS,
 };

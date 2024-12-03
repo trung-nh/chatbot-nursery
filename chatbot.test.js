@@ -1,4 +1,5 @@
-const { chatbotResponse, MESSAGE, BLACK_LISTED_WORDS } = require("./index");
+const { chatbotResponse } = require("./index");
+const { MESSAGE, BLACK_LISTED_WORDS } = require("./configurations");
 
 describe("chatbotResponse", () => {
   const userId = "<user-id>";
@@ -21,16 +22,15 @@ describe("chatbotResponse", () => {
   });
 
   // partially including black-listed words test cases
-  let partiallyBlackListedInput = ["whack","xscam"];
+  let partiallyBlackListedInput = ["whack", "xscam"];
   partiallyBlackListedInput.forEach((input) => {
     test("should return true for input partially containing black-listed words", () => {
-      expect(
-        chatbotResponse(userId, input)).toBe(`I hear you say: ${input}`);
+      expect(chatbotResponse(userId, input)).toBe(`I hear you say: ${input}`);
     });
   });
 
   // bypassed black-listed words test cases
-  let bypassedBlackListedInput = ["h@ck", "sc@m", "che@t"];
+  let bypassedBlackListedInput = ["h@ck", "sc@m", "che@t", "d1ck", "murd3r", "b1tch"];
   bypassedBlackListedInput.forEach((input) => {
     test("should return false for input containing bypassed black-listed words", () => {
       expect(

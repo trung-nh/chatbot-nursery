@@ -58,6 +58,7 @@ This project implements a simple command-line chatbot application that adheres t
 
 ### Main Files
 - **`index.js`**: Contains the main application logic.
+- **`configurations.js`**: Contains the program's configurations (i.e. BLACK_LISTED_WORDS, MESSAGE, LEET_SPEAK_MAPPING...).
 - **`chabot.test.js`**: Contains the unit tests for the chatbot.
 - **`chatbot_log.txt`**: Log file where all interactions are stored.
 
