@@ -72,7 +72,7 @@ This project implements a simple command-line chatbot application that adheres t
 #### `logMessage(userId, message)`
 - Logs messages to `chatbot_log.txt` with a timestamp.
 
-#### `chatbotResponse(userId, input)`
+#### `chatbotResponse(userId, input, isTesting)`
 - Processes user input and generates appropriate chatbot responses.
 
 #### `initializeChatbot()`
